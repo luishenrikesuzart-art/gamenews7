@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luis Henrik | Meu Site</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d15;
+    --bg-card: #16162a;
+    --neon-purple: #b829f7;
+    --neon-green: #39ff14;
+    --text: #e8e8f0;
+    --text-dim: #9494b0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    line-height: 1.6;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(184,41,247,0.15) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(57,255,20,0.1) 0%, transparent 40%);
+    background-attachment: fixed;
+  }
+
+  header {
+    text-align: center;
+    padding: 60px 20px 40px;
+  }
+
+  header h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2rem;
+    color: var(--neon-green);
+    text-shadow: 0 0 10px var(--neon-green), 0 0 20px rgba(57,255,20,0.5);
+    margin-bottom: 10px;
+  }
+
+  header p {
+    color: var(--neon-purple);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px;
+    border-top: 2px solid var(--neon-purple);
+    border-bottom: 2px solid var(--neon-purple);
+    margin: 0 auto 40px;
+    max-width: 600px;
+  }
+
+  nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s, text-shadow 0.3s;
+  }
+
+  nav a:hover {
+    color: var(--neon-green);
+    text-shadow: 0 0 8px var(--neon-green);
+  }
+
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  section {
+    background: var(--bg-card);
+    border: 1px solid rgba(184,41,247,0.3);
+    border-radius: 12px;
+    padding: 35px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 25px rgba(184,41,247,0.1);
+  }
+
+  section h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2rem;
+    color: var(--neon-purple);
+    margin-bottom: 20px;
+    text-shadow: 0 0 8px rgba(184,41,247,0.6);
+  }
+
+  section p {
+    color: var(--text-dim);
+    font-size: 1.05rem;
+  }
+
+  .hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 18px;
+    margin-top: 10px;
+  }
+
+  .hobby-card {
+    background: rgba(184,41,247,0.08);
+    border: 1px solid var(--neon-green);
+    border-radius: 8px;
+    padding: 20px 10px;
+    text-align: center;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .hobby-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px var(--neon-green);
+  }
+
+  .hobby-card span {
+    display: block;
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(184,41,247,0.3);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>LUIS HENRIK</h1>
+  <p>&lt; Player One &gt;</p>
+</header>
+
+<nav>
+  <a href="#sobre">Sobre mim</a>
+  <a href="#hobbies">Hobbies</a>
+</nav>
+
+<main>
+  <section id="sobre">
+    <h2>SOBRE MIM</h2>
+    <p>
+      E aí! Eu sou o Luis, moro em São Paulo e sou apaixonado por games desde
+      sempre. Curto explorar mundos novos, testar jogos diferentes e trocar
+      ideia sobre estratégias, gameplay e tudo mais que envolve o universo
+      gamer. Esse site é meu cantinho pessoal na internet — bem-vindo(a)!
+    </p>
+  </section>
+
+  <section id="hobbies">
+    <h2>HOBBIES & INTERESSES</h2>
+    <p>Aqui estão algumas das coisas que eu mais curto:</p>
+    <div class="hobbies-grid">
+      <div class="hobby-card"><span>🎮</span>Games</div>
+      <div class="hobby-card"><span>🏆</span>Competir</div>
+      <div class="hobby-card"><span>🕹️</span>Novos lançamentos</div>
+      <div class="hobby-card"><span>💬</span>Comunidade gamer</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Feito por Luis Henrik &copy; 2026</p>
+</footer>
+
+</body>
+</html>
