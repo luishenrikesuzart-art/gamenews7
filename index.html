@@ -1,180 +1,486 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luis Henrik | Meu Site</title>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luis Henrik | Tecnologia, do jogar ao construir</title>
+<meta name="description" content="Site pessoal de Luis Henrik, de São Paulo. Plano de cinco meses para aprender eletrônica, robótica, pensamento computacional, cultura maker e cultura hacker.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0d0d15;
-    --bg-card: #16162a;
-    --neon-purple: #b829f7;
-    --neon-green: #39ff14;
-    --text: #e8e8f0;
-    --text-dim: #9494b0;
-  }
+:root{
+  --red:#e5262b; --bg:#000; --text:#f2f2f2; --muted:#9c9c9c; --rule:#2a2a2a; --line:#5a5a5a;
+  --display:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;
+  --body:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:1rem;line-height:1.7}
+a{color:inherit}
+:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;font-weight:700}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+/* Abertura */
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:28px 0}
+.top nav{display:flex;gap:24px;font-size:.92rem;color:var(--muted)}
+.top nav a{text-decoration:none}
+.top nav a{transition:color .25s}
+.top nav a:hover{color:var(--text);text-decoration:underline;text-decoration-color:var(--red);text-underline-offset:6px}
+.top strong{font-family:var(--display);font-size:1rem}
+.top strong::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--red);margin-right:10px}
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Rajdhani', sans-serif;
-    line-height: 1.6;
-    background-image:
-      radial-gradient(circle at 20% 20%, rgba(184,41,247,0.15) 0%, transparent 40%),
-      radial-gradient(circle at 80% 80%, rgba(57,255,20,0.1) 0%, transparent 40%);
-    background-attachment: fixed;
-  }
+.hero{padding:88px 0 72px}
+.hero h1{font-size:clamp(1.6rem,3.6vw,2.4rem);font-weight:400;max-width:26ch;letter-spacing:-.01em}
+.hero h1 b{font-weight:700}
+.hero p{margin:20px 0 0;color:var(--muted);max-width:52ch}
 
-  header {
-    text-align: center;
-    padding: 60px 20px 40px;
-  }
+/* Linha do tempo dos 5 meses */
+.timeline{position:relative;list-style:none;margin:72px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,1fr)}
+.timeline::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--line);transform-origin:left;animation:draw 1.4s .5s ease-out both}
+.timeline li{position:relative;padding:22px 16px 0 0}
+.timeline li::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid var(--red)}
+.timeline li:first-child::before{background:var(--red)}
+.timeline a{display:block;text-decoration:none}
+.timeline small{display:block;color:var(--muted);font-size:.85rem}
+.timeline span{display:block;font-weight:600;font-size:.98rem;line-height:1.35}
+.timeline a:hover span{text-decoration:underline;text-decoration-color:var(--red);text-underline-offset:5px}
 
-  header h1 {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 2rem;
-    color: var(--neon-green);
-    text-shadow: 0 0 10px var(--neon-green), 0 0 20px rgba(57,255,20,0.5);
-    margin-bottom: 10px;
-  }
+/* Seções */
+section{padding:72px 0 8px}
+.cols{display:grid;grid-template-columns:220px 1fr;gap:16px 48px}
+h2{font-size:1.35rem}
+h2::before{content:"";display:block;width:20px;height:2px;background:var(--red);margin-bottom:12px}
+.cols p{margin:0 0 16px;max-width:60ch}
+.lead{color:var(--muted)}
 
-  header p {
-    color: var(--neon-purple);
-    font-size: 1.1rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
+dl.done{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px 32px}
+dl.done dt{font-family:var(--display);font-weight:700;border-top:1px solid var(--line);padding-top:10px;transition:border-color .3s}
+dl.done div:hover dt{border-color:var(--red)}
+dl.done dd{margin:4px 0 0;color:var(--muted);font-size:.95rem}
 
-  nav {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 15px;
-    border-top: 2px solid var(--neon-purple);
-    border-bottom: 2px solid var(--neon-purple);
-    margin: 0 auto 40px;
-    max-width: 600px;
-  }
+.item{display:grid;grid-template-columns:220px 1fr;gap:8px 48px;padding:32px 0;border-top:1px solid var(--rule);scroll-margin-top:16px}
+.item h3{font-size:1.15rem}
+.item .mes{display:block;color:var(--muted);font-size:.85rem;margin-bottom:4px;transition:color .3s}
+.item:hover .mes{color:var(--red)}
+.item p{margin:0 0 10px;max-width:60ch}
+.item .missao{color:var(--muted);font-size:.95rem}
+.item .missao b{color:var(--text);font-weight:600}
+.bar{height:3px;background:var(--rule);margin-top:16px;max-width:360px}
+.bar span{display:block;height:100%;width:calc(var(--p,0) * 1%);background:var(--red)}
+.pct{font-size:.85rem;color:var(--muted);margin-top:6px}
 
-  nav a {
-    color: var(--text);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: color 0.3s, text-shadow 0.3s;
-  }
+footer{margin-top:64px;border-top:1px solid var(--rule);padding:28px 0 48px;color:var(--muted);font-size:.9rem}
 
-  nav a:hover {
-    color: var(--neon-green);
-    text-shadow: 0 0 8px var(--neon-green);
-  }
 
-  main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px 60px;
-  }
+/* Animações */
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes heroGlow{from{filter:brightness(.72)}to{filter:brightness(1)}}
+@keyframes drawY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(229,38,43,.55)}70%{box-shadow:0 0 0 10px rgba(229,38,43,0)}100%{box-shadow:0 0 0 0 rgba(229,38,43,0)}}
+.top{animation:rise .8s ease-out both}
+.hero h1{animation:rise .9s .15s ease-out both}
+.hero p{animation:rise .9s .35s ease-out both}
+.hero{animation:heroGlow 1.2s .1s ease-out both}
+.timeline li::before{animation:pop .45s ease-out both}
+.timeline li:nth-child(1)::before{animation-delay:.7s}
+.timeline li:nth-child(2)::before{animation-delay:.95s}
+.timeline li:nth-child(3)::before{animation-delay:1.2s}
+.timeline li:nth-child(4)::before{animation-delay:1.45s}
+.timeline li:nth-child(5)::before{animation-delay:1.7s}
+.timeline li:first-child::before{animation:pop .45s .7s ease-out both,pulse 2.4s 1.5s ease-out infinite}
+.timeline li a{animation:rise .7s ease-out both}
+.timeline li:nth-child(1) a{animation-delay:.8s}
+.timeline li:nth-child(2) a{animation-delay:1.05s}
+.timeline li:nth-child(3) a{animation-delay:1.3s}
+.timeline li:nth-child(4) a{animation-delay:1.55s}
+.timeline li:nth-child(5) a{animation-delay:1.8s}
+.js .reveal{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s ease}
+.js .reveal.in{opacity:1;transform:none}
+.js .item .bar span{width:0;transition:width 1.3s .3s ease}
+.js .item.in .bar span{width:calc(var(--p,0) * 1%)}
 
-  section {
-    background: var(--bg-card);
-    border: 1px solid rgba(184,41,247,0.3);
-    border-radius: 12px;
-    padding: 35px;
-    margin-bottom: 40px;
-    box-shadow: 0 0 25px rgba(184,41,247,0.1);
-  }
+@media (max-width:720px){
+  .cols,.item{grid-template-columns:1fr}
+  .hero{padding:48px 0}
+  .timeline{grid-template-columns:1fr;margin-top:48px}
+  .timeline::before{right:auto;bottom:0;width:1px;height:auto;transform-origin:top;animation-name:drawY}
+  .timeline li{padding:0 0 22px 24px}
+  .timeline li::before{top:6px;left:-5px}
+}
 
-  section h2 {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 1.2rem;
-    color: var(--neon-purple);
-    margin-bottom: 20px;
-    text-shadow: 0 0 8px rgba(184,41,247,0.6);
-  }
+/* Interações com o cursor */
+.top strong{
+  transition:transform .3s ease, letter-spacing .3s ease;
+  display:inline-block;
+}
+.top strong:hover{
+  transform:translateX(4px);
+  letter-spacing:.03em;
+}
+.top strong::before{
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.top strong:hover::before{
+  transform:scale(1.35);
+  box-shadow:0 0 14px rgba(229,38,43,.75);
+}
 
-  section p {
-    color: var(--text-dim);
-    font-size: 1.05rem;
-  }
+.top nav a{
+  position:relative;
+  transition:color .25s ease, transform .25s ease;
+  display:inline-block;
+}
+.top nav a:hover{
+  transform:translateY(-2px);
+}
 
-  .hobbies-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 18px;
-    margin-top: 10px;
-  }
+.timeline li{
+  transition:transform .3s ease;
+}
+.timeline li:hover{
+  transform:translateY(-5px);
+}
+.timeline li::before{
+  transition:transform .3s ease, background .3s ease, box-shadow .3s ease;
+}
+.timeline li:hover::before{
+  transform:scale(1.5);
+  background:var(--red);
+  box-shadow:0 0 0 5px rgba(229,38,43,.12), 0 0 16px rgba(229,38,43,.45);
+}
+.timeline span{
+  transition:color .25s ease, transform .25s ease;
+}
+.timeline li:hover span{
+  color:var(--red);
+  transform:translateX(4px);
+}
 
-  .hobby-card {
-    background: rgba(184,41,247,0.08);
-    border: 1px solid var(--neon-green);
-    border-radius: 8px;
-    padding: 20px 10px;
-    text-align: center;
-    font-weight: 600;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
+.cols h2{
+  transition:transform .3s ease;
+}
+.cols:hover h2{
+  transform:translateX(5px);
+}
+.cols h2::before{
+  transition:width .3s ease, box-shadow .3s ease;
+}
+.cols:hover h2::before{
+  width:34px;
+  box-shadow:0 0 10px rgba(229,38,43,.45);
+}
 
-  .hobby-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 15px var(--neon-green);
-  }
+dl.done div{
+  padding:12px;
+  margin:-12px;
+  border:1px solid transparent;
+  border-radius:8px;
+  transition:transform .3s ease, border-color .3s ease, background .3s ease;
+}
+dl.done div:hover{
+  transform:translateY(-6px);
+  border-color:var(--red);
+  background:rgba(229,38,43,.045);
+}
+dl.done dt{
+  transition:color .3s ease, border-color .3s ease;
+}
+dl.done div:hover dt{
+  color:var(--red);
+}
 
-  .hobby-card span {
-    display: block;
-    font-size: 1.8rem;
-    margin-bottom: 8px;
-  }
+.item{
+  transition:transform .35s ease, padding-left .35s ease, border-color .35s ease;
+}
+.item:hover{
+  transform:translateX(5px);
+  border-color:#444;
+}
+.item h3{
+  transition:color .3s ease;
+}
+.item:hover h3{
+  color:var(--red);
+}
+.item .missao b{
+  transition:color .3s ease;
+}
+.item:hover .missao b{
+  color:var(--red);
+}
+.bar{
+  overflow:hidden;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.item:hover .bar{
+  transform:scaleY(1.8);
+  box-shadow:0 0 12px rgba(229,38,43,.18);
+}
+.bar span{
+  transition:width 1.3s .3s ease, box-shadow .3s ease;
+}
+.item:hover .bar span{
+  box-shadow:0 0 10px rgba(229,38,43,.65);
+}
+.pct{
+  transition:color .3s ease;
+}
+.item:hover .pct{
+  color:var(--text);
+}
 
-  footer {
-    text-align: center;
-    padding: 30px;
-    color: var(--text-dim);
-    font-size: 0.9rem;
-    border-top: 1px solid rgba(184,41,247,0.3);
+/* Cursor-follow style: brilho suave ao passar sobre áreas interativas */
+.top nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:100%;
+  bottom:-4px;
+  height:2px;
+  background:var(--red);
+  transition:right .3s ease;
+}
+.top nav a:hover::after{
+  right:0;
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1;transform:none}
+  .js .item .bar span{width:calc(var(--p,0) * 1%)}
+}
+
+/* Efeito de tecnologia ao clicar duas vezes */
+.tech-particle{
+  position:fixed;
+  width:5px;
+  height:5px;
+  background:#39ff88;
+  box-shadow:0 0 7px #39ff88, 0 0 14px rgba(57,255,136,.55);
+  pointer-events:none;
+  z-index:9999;
+  image-rendering:pixelated;
+  animation:techLeak var(--dur) cubic-bezier(.15,.75,.25,1) forwards;
+}
+@keyframes techLeak{
+  0%{
+    opacity:0;
+    transform:translate(0,0) scale(.4) rotate(0deg);
   }
+  12%{
+    opacity:1;
+  }
+  65%{
+    opacity:.95;
+  }
+  100%{
+    opacity:0;
+    transform:translate(var(--tx),var(--ty)) scale(.15) rotate(var(--rot));
+  }
+}
+.tech-flash{
+  position:fixed;
+  width:8px;
+  height:8px;
+  border:1px solid rgba(57,255,136,.8);
+  pointer-events:none;
+  z-index:9998;
+  transform:translate(-50%,-50%) scale(.2);
+  animation:techFlash .45s ease-out forwards;
+}
+@keyframes techFlash{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.2)}
+  25%{opacity:1}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(4)}
+}
+
 </style>
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
-<header>
-  <h1>LUIS HENRIK</h1>
-  <p>&lt; Player One &gt;</p>
-</header>
+<div class="wrap">
+  <div class="top">
+    <strong>Luis Henrik</strong>
+    <nav aria-label="Principal">
+      <a href="#sobre">Sobre mim</a>
+      <a href="#explorado">Já explorei</a>
+      <a href="#plano">Plano de 5 meses</a>
+    </nav>
+  </div>
 
-<nav>
-  <a href="#sobre">Sobre mim</a>
-  <a href="#hobbies">Hobbies</a>
-</nav>
+  <div class="hero">
+    <h1>Nos próximos cinco meses, vou aprender a <b>construir</b> a tecnologia que hoje eu só uso.</h1>
+    <p>Sou de São Paulo e este site registra cada etapa dessa jornada, com metas, projetos e progresso.</p>
+    <ol class="timeline" aria-label="Habilidades dos próximos cinco meses">
+      <li><a href="#pensamento"><small>Mês 1</small><span>Pensamento computacional</span></a></li>
+      <li><a href="#eletronica"><small>Mês 2</small><span>Eletrônica</span></a></li>
+      <li><a href="#robotica"><small>Mês 3</small><span>Robótica</span></a></li>
+      <li><a href="#maker"><small>Mês 4</small><span>Cultura maker</span></a></li>
+      <li><a href="#hacker"><small>Mês 5</small><span>Cultura hacker</span></a></li>
+    </ol>
+  </div>
+</div>
 
-<main>
+<main class="wrap">
+
   <section id="sobre">
-    <h2>SOBRE MIM</h2>
-    <p>
-      E aí! Eu sou o Luis, moro em São Paulo e sou apaixonado por games desde
-      sempre. Curto explorar mundos novos, testar jogos diferentes e trocar
-      ideia sobre estratégias, gameplay e tudo mais que envolve o universo
-      gamer. Esse site é meu cantinho pessoal na internet — bem-vindo(a)!
-    </p>
-  </section>
-
-  <section id="hobbies">
-    <h2>HOBBIES & INTERESSES</h2>
-    <p>Aqui estão algumas das coisas que eu mais curto:</p>
-    <div class="hobbies-grid">
-      <div class="hobby-card"><span>🎮</span>Games</div>
-      <div class="hobby-card"><span>🏆</span>Competir</div>
-      <div class="hobby-card"><span>🕹️</span>Novos lançamentos</div>
-      <div class="hobby-card"><span>💬</span>Comunidade gamer</div>
+    <div class="cols reveal">
+      <h2>Sobre mim</h2>
+      <div>
+        <p>Sou o Luis, moro em São Paulo e sou apaixonado por games desde sempre. Gosto de explorar jogos diferentes, discutir estratégia e trocar ideias com a comunidade.</p>
+        <p class="lead">Agora quero entender como as máquinas por trás dos jogos funcionam.</p>
+      </div>
     </div>
   </section>
+
+  <section id="explorado">
+    <div class="cols reveal">
+      <h2>O que já explorei</h2>
+      <!-- Para adicionar outra experiência, copie um bloco div com dt e dd e edite o texto. -->
+      <dl class="done">
+        <div><dt>Games</dt><dd>Explorar e testar jogos de gêneros diferentes.</dd></div>
+        <div><dt>Competição</dt><dd>Estratégia e gameplay em disputas.</dd></div>
+        <div><dt>Novos lançamentos</dt><dd>Acompanhar o que está chegando ao mercado.</dd></div>
+        <div><dt>Comunidade gamer</dt><dd>Trocar ideias e aprender com outros jogadores.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="plano">
+    <div class="cols reveal">
+      <h2>Plano de 5 meses</h2>
+      <p class="lead">Uma habilidade por mês, cada uma com uma missão prática. A barra mostra meu progresso atual.</p>
+    </div>
+    <!-- Para atualizar o progresso: mude o número em style="--p:0", em aria-valuenow e no texto "Progresso: 0%". -->
+
+    <article class="item reveal" id="pensamento">
+      <div><span class="mes">Mês 1</span><h3>Pensamento computacional</h3></div>
+      <div>
+        <p>Dividir problemas grandes em partes, reconhecer padrões e descrever a solução passo a passo.</p>
+        <p class="missao"><b>Missão:</b> criar a lógica de um jogo simples, do zero.</p>
+        <div class="bar" role="progressbar" aria-label="Progresso em pensamento computacional" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="--p:0"><span></span></div>
+        <div class="pct">Progresso: 0%</div>
+      </div>
+    </article>
+
+    <article class="item reveal" id="eletronica">
+      <div><span class="mes">Mês 2</span><h3>Eletrônica</h3></div>
+      <div>
+        <p>Entender corrente, resistor, LED e botão, e montar circuitos de verdade.</p>
+        <p class="missao"><b>Missão:</b> montar em um protoboard um controle com botões que acendem LEDs.</p>
+        <div class="bar" role="progressbar" aria-label="Progresso em eletrônica" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="--p:0"><span></span></div>
+        <div class="pct">Progresso: 0%</div>
+      </div>
+    </article>
+
+    <article class="item reveal" id="robotica">
+      <div><span class="mes">Mês 3</span><h3>Robótica</h3></div>
+      <div>
+        <p>Combinar sensores, motores e código para que um robô perceba o ambiente e reaja.</p>
+        <p class="missao"><b>Missão:</b> construir um carrinho que desvia de obstáculos sozinho.</p>
+        <div class="bar" role="progressbar" aria-label="Progresso em robótica" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="--p:0"><span></span></div>
+        <div class="pct">Progresso: 0%</div>
+      </div>
+    </article>
+
+    <article class="item reveal" id="maker">
+      <div><span class="mes">Mês 4</span><h3>Cultura maker</h3></div>
+      <div>
+        <p>Projetar, montar, testar, corrigir e compartilhar o processo com outras pessoas.</p>
+        <p class="missao"><b>Missão:</b> criar um acessório gamer próprio e documentar o passo a passo aqui no site.</p>
+        <div class="bar" role="progressbar" aria-label="Progresso em cultura maker" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="--p:0"><span></span></div>
+        <div class="pct">Progresso: 0%</div>
+      </div>
+    </article>
+
+    <article class="item reveal" id="hacker">
+      <div><span class="mes">Mês 5</span><h3>Cultura hacker</h3></div>
+      <div>
+        <p>Curiosidade para entender como os sistemas funcionam, sempre com ética e apenas com autorização.</p>
+        <p class="missao"><b>Missão:</b> resolver desafios de CTF para iniciantes e aprender os fundamentos de redes.</p>
+        <div class="bar" role="progressbar" aria-label="Progresso em cultura hacker" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="--p:0"><span></span></div>
+        <div class="pct">Progresso: 0%</div>
+      </div>
+    </article>
+  </section>
+
 </main>
 
 <footer>
-  <p>Feito por Luis Henrik &copy; 2026</p>
+  <div class="wrap">Feito por Luis Henrik © 2026</div>
 </footer>
 
+
+<script>
+(function(){
+  document.addEventListener('dblclick', function(e){
+    var wave = document.createElement('div');
+    wave.className = 'tech-wave';
+    wave.style.left = e.clientX + 'px';
+    wave.style.top = e.clientY + 'px';
+    document.body.appendChild(wave);
+
+    var core = document.createElement('span');
+    core.className = 'tech-core';
+    core.style.left = e.clientX + 'px';
+    core.style.top = e.clientY + 'px';
+    document.body.appendChild(core);
+
+    // Grade de pequenos quadrados que se espalha até as bordas da tela.
+    var cols = Math.ceil(window.innerWidth / 55) + 4;
+    var rows = Math.ceil(window.innerHeight / 55) + 4;
+
+    for(var y = -2; y < rows; y++){
+      for(var x = -2; x < cols; x++){
+        var p = document.createElement('span');
+        p.className = 'tech-square';
+
+        var targetX = x * 55 + 20;
+        var targetY = y * 55 + 20;
+        var dx = targetX - e.clientX;
+        var dy = targetY - e.clientY;
+        var distance = Math.sqrt(dx * dx + dy * dy);
+
+        p.style.left = '0px';
+        p.style.top = '0px';
+        p.style.setProperty('--tx', dx + 'px');
+        p.style.setProperty('--ty', dy + 'px');
+        p.style.setProperty('--delay', Math.min(distance / 1300, .8) + 's');
+        p.style.setProperty('--dur', (1.1 + distance / 2200) + 's');
+
+        var size = 3 + Math.random() * 5;
+        p.style.width = size + 'px';
+        p.style.height = size + 'px';
+
+        wave.appendChild(p);
+      }
+    }
+
+    setTimeout(function(){
+      wave.remove();
+      core.remove();
+    }, 3000);
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+    });
+  },{threshold:0.15});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
 </body>
 </html>
